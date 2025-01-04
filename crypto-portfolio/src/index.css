@@ -1,0 +1,45 @@
+@import '@fontsource/syncopate/700.css';
+@import '@fontsource/outfit/400.css';
+@import '@fontsource/outfit/500.css';
+@import '@fontsource/outfit/600.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-syncopate: 'Syncopate', sans-serif;
+  --font-outfit: 'Outfit', sans-serif;
+}
+
+body {
+  background-color: #030303;
+  font-family: var(--font-outfit);
+}
+
+.heading-font {
+  font-family: var(--font-syncopate);
+}
+
+/* Add smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
