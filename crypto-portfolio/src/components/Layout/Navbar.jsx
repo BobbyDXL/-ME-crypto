@@ -28,7 +28,7 @@ export function Navbar() {
     <motion.nav 
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`sticky top-0 w-full z-50 transition-all duration-300 ${
         scrolled 
           ? 'bg-primary-black/80 backdrop-blur-md border-b border-accent-2/10' 
           : 'bg-transparent'

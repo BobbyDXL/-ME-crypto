@@ -10,7 +10,7 @@ export function Hero() {
   const opacity = useTransform(scrollY, [0, 200], [1, 0]);
 
   return (
-    <section className="min-h-screen flex items-center pt-20 relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden py-20">
       {/* Abstract Background Elements */}
       <motion.div 
         className="absolute inset-0 z-0"

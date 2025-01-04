@@ -6,6 +6,7 @@ import { Roadmap } from './components/Sections/Roadmap';
 import { Team } from './components/Sections/Team';
 import { Footer } from './components/Sections/Footer';
 import { motion, AnimatePresence } from 'framer-motion';
+import { LimitedOffer } from './components/Banners/LimitedOffer';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         
         {/* Content */}
         <div className="relative z-10">
+          <LimitedOffer />
           <Navbar />
           
           {/* Main Content */}

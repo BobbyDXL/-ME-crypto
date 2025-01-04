@@ -5,28 +5,28 @@ export function Team() {
     {
       name: 'Kai Zhang',
       role: 'Founder & CEO',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2940&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop',
       linkedin: '#',
       twitter: '#'
     },
     {
       name: 'Aisha Patel',
       role: 'CTO',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2787&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?q=80&w=1969&auto=format&fit=crop',
       linkedin: '#',
       twitter: '#'
     },
     {
       name: 'Zain Al-Rashid',
       role: 'Lead Developer',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2787&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1566753323558-f4e0952af115?q=80&w=1921&auto=format&fit=crop',
       linkedin: '#',
       twitter: '#'
     },
     {
       name: 'Luna Park',
       role: 'Marketing Director',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=2961&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop',
       linkedin: '#',
       twitter: '#'
     },
