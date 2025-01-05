@@ -1,23 +1,23 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from '../ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import { RotatingCoin } from '../3D/RotatingCoin';
+import { InteractiveCube } from '../../components/3D/InteractiveCube';
 
 export function Hero() {
-  // Define scroll animations
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 200]);
-  const opacity = useTransform(scrollY, [0, 200], [1, 0]);
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden py-20">
-      {/* Abstract Background Elements */}
+    <section className="relative min-h-screen flex items-center pt-20 pb-12 overflow-hidden">
+      {/* Background Elements */}
       <motion.div 
         className="absolute inset-0 z-0"
-        style={{ opacity }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
       >
         <motion.div 
-          className="absolute top-20 left-[20%] w-72 h-72 bg-white/5 rounded-full blur-3xl"
+          className="absolute top-40 left-[15%] w-[500px] h-[500px] bg-white/5 rounded-full blur-[120px]"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -29,7 +29,7 @@ export function Hero() {
           }}
         />
         <motion.div 
-          className="absolute bottom-20 right-[20%] w-96 h-96 bg-white/10 rounded-full blur-3xl"
+          className="absolute bottom-20 right-[15%] w-[600px] h-[600px] bg-white/10 rounded-full blur-[120px]"
           animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.5, 0.3, 0.5],
@@ -43,56 +43,51 @@ export function Hero() {
       </motion.div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
-          <motion.div
+          <motion.div 
+            className="text-center lg:text-left max-w-2xl mx-auto lg:mx-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8"
           >
+            {/* Tag */}
             <motion.div
+              className="inline-flex items-center px-4 py-2 rounded-full border border-white/10 
+                         bg-white/5 backdrop-blur-sm mb-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm"
             >
               <Sparkles className="w-4 h-4 mr-2" />
               <span className="text-sm">Revolutionary DeFi Protocol</span>
             </motion.div>
 
-            <motion.h1 
-              className="font-syncopate text-6xl md:text-7xl xl:text-8xl font-bold leading-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-            >
-              FUTURE OF
-              <motion.span 
-                className="block"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 }}
+            {/* Main Heading */}
+            <motion.div className="space-y-4 mb-8">
+              <h1 className="font-syncopate font-bold leading-none">
+                <span className="text-4xl lg:text-5xl xl:text-6xl">THE</span>
+                <span className="block text-6xl lg:text-7xl xl:text-8xl mt-2">FUTURE</span>
+                <span className="block text-3xl lg:text-4xl xl:text-5xl text-gray-400 mt-2">OF DEFI</span>
+              </h1>
+              
+              <motion.p 
+                className="text-lg text-gray-400 max-w-lg mt-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
               >
-                DEFI
-              </motion.span>
-            </motion.h1>
+                Experience the next generation of decentralized finance.
+                Built for the future, available today.
+              </motion.p>
+            </motion.div>
 
-            <motion.p 
-              className="text-xl text-gray-400 max-w-lg"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-            >
-              Revolutionary blockchain technology meeting decentralized finance.
-              Join the future of crypto.
-            </motion.p>
-
+            {/* CTA Buttons */}
             <motion.div
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="flex flex-col sm:flex-row gap-4"
+              transition={{ delay: 0.6 }}
             >
               <Button 
                 size="lg"
@@ -110,37 +105,38 @@ export function Hero() {
               </Button>
             </motion.div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-4 pt-8">
+            {/* Stats Grid */}
+            <motion.div 
+              className="grid grid-cols-2 gap-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+            >
               {[
                 { label: 'Total Supply', value: '1B' },
                 { label: 'Holders', value: '12.5K' },
                 { label: 'Market Cap', value: '$14.5M' },
-                { label: 'Locked', value: '95%' },
+                { label: 'Locked', value: '95%' }
               ].map((stat, index) => (
                 <motion.div
                   key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 + (index * 0.1) }}
-                  className="border border-white/10 rounded-lg p-4"
+                  className="border border-white/10 rounded-lg p-4 backdrop-blur-sm"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <p className="font-outfit text-gray-400 text-sm">{stat.label}</p>
-                  <p className="font-syncopate text-white text-2xl">{stat.value}</p>
+                  <p className="font-outfit text-sm text-gray-400">{stat.label}</p>
+                  <p className="font-syncopate text-2xl text-white mt-1">{stat.value}</p>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
 
-          {/* Right Content - 3D Coin */}
-          <motion.div
-            className="relative h-[600px] hidden lg:block"
-            style={{ y }}
-          >
+          {/* Right Content - Rotating Coin */}
+          <div className="relative h-[400px] lg:h-[600px]">
             <div className="w-full h-full">
-              <RotatingCoin />
+              <InteractiveCube />
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
