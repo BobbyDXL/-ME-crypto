@@ -5,31 +5,36 @@ import { Button } from "../ui/button";
 import { useState } from "react";
 import { toast } from "sonner";
 import { ManualConnectModal } from "../ui/ManualConnectModal";
+import phantomIcon from "/src/assets/PhantomWalletIcon.svg";
+import solflareIcon from "/src/assets/SolFlareIcon.png";
+import exodusIcon from "/src/assets/ExodusIcon.svg";
+import glowIcon from "/src/assets/GlowWallet.png";
+import slopeIcon from "/src/assets/SlopeWallet.png";
 
 const wallets = [
   {
     name: "Phantom",
-    icon: "/src/assets/PhantomWalletIcon.svg",
+    icon: phantomIcon,
     url: "https://phantom.app/"
   },
   {
     name: "Solflare",
-    icon: "/src/assets/SolFlareIcon.png",
+    icon: solflareIcon,
     url: "https://solflare.com/"
   },
   {
     name: "Exodus",
-    icon: "/src/assets/ExodusIcon.svg",
+    icon: exodusIcon,
     url: "https://www.exodus.com/"
   },
   {
     name: "Glow Wallet",
-    icon: "/src/assets/GlowWallet.png",
+    icon: glowIcon,
     url: "https://glow.app/"
   },
   {
     name: "Slope",
-    icon: "/src/assets/SlopeWallet.png",
+    icon: slopeIcon,
     url: "https://slope.finance/"
   }
 ];
