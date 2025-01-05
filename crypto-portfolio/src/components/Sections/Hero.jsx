@@ -1,8 +1,8 @@
+import { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from '../ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { MathShape } from "../../components/3D/MathShape";
-import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
 export function Hero() {
@@ -10,6 +10,19 @@ export function Hero() {
   const y = useTransform(scrollY, [0, 500], [0, 200]);
   const [isWalletModalOpen, setIsWalletModalOpen] = useState(false);
   const navigate = useNavigate();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   return (
     <>
@@ -140,11 +153,13 @@ export function Hero() {
             </motion.div>
 
             {/* Right Content - Rotating Coin */}
-            <div className="relative h-[400px] lg:h-[600px]">
-              <div className="w-full h-full">
-                <MathShape />
+            {!isMobile && (
+              <div className="relative h-[400px] lg:h-[600px]">
+                <div className="w-full h-full">
+                  <MathShape />
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </section>
