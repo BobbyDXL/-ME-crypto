@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from '../ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import { InteractiveCube } from '../../components/3D/InteractiveCube';
+import { MathShape } from "../../components/3D/MathShape";
 
 export function Hero() {
   const { scrollY } = useScroll();
@@ -134,7 +134,7 @@ export function Hero() {
           {/* Right Content - Rotating Coin */}
           <div className="relative h-[400px] lg:h-[600px]">
             <div className="w-full h-full">
-              <InteractiveCube />
+              <MathShape />
             </div>
           </div>
         </div>
