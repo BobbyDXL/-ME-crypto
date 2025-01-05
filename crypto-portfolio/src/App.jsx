@@ -9,6 +9,7 @@ import { Footer } from './components/Sections/Footer';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LimitedOffer } from './components/Banners/LimitedOffer';
 import { ConnectWallet } from './components/pages/ConnectWallet';
+import { Toaster } from 'sonner';
 
 // Create a Home component to wrap the main content
 function Home() {
@@ -95,25 +96,28 @@ function Home() {
 
 function App() {
   return (
-    <Router>
-      <AnimatePresence mode="wait">
-        <div className="min-h-screen bg-black text-white relative">
-          {/* Animated Background */}
-          <AnimatedBackground />
-          
-          {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black to-black pointer-events-none" />
-          
-          {/* Content */}
-          <div className="relative z-10">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/connect" element={<ConnectWallet />} />
-            </Routes>
+    <>
+      <Toaster position="top-center" theme="dark" />
+      <Router>
+        <AnimatePresence mode="wait">
+          <div className="min-h-screen bg-black text-white relative">
+            {/* Animated Background */}
+            <AnimatedBackground />
+            
+            {/* Overlay gradient */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black to-black pointer-events-none" />
+            
+            {/* Content */}
+            <div className="relative z-10">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/connect" element={<ConnectWallet />} />
+              </Routes>
+            </div>
           </div>
-        </div>
-      </AnimatePresence>
-    </Router>
+        </AnimatePresence>
+      </Router>
+    </>
   );
 }
 
