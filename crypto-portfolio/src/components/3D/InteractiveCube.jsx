@@ -17,7 +17,7 @@ function Cube() {
   return (
     <mesh
       ref={meshRef}
-      scale={clicked ? 1.5 : 1}
+      scale={clicked ? 3 : 2}
       onClick={() => setClicked(!clicked)}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
@@ -25,9 +25,12 @@ function Cube() {
       <boxGeometry args={[2, 2, 2]} />
       <meshStandardMaterial
         color={hovered ? '#ff9f1c' : '#2ec4b6'}
-        metalness={0.5}
+        metalness={0.8}
         roughness={0.2}
-        wireframe={clicked}
+        wireframe={true}
+        wireframeLinewidth={2}
+        emissive={hovered ? '#ff9f1c' : '#2ec4b6'}
+        emissiveIntensity={0.2}
       />
     </mesh>
   );
