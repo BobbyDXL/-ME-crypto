@@ -18,55 +18,55 @@ export function Hero() {
     };
 
     checkMobile();
-
     window.addEventListener('resize', checkMobile);
-
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   return (
     <>
       <section className="relative min-h-screen flex items-center pt-20 pb-12 overflow-hidden">
-        {/* Background Elements */}
-        <motion.div
-          className="absolute inset-0 z-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
+        {/* Background Elements - Only show on non-mobile */}
+        {!isMobile && (
           <motion.div
-            className="absolute top-40 left-[15%] w-[500px] h-[500px] bg-white/5 rounded-full blur-[120px]"
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-          <motion.div
-            className="absolute bottom-20 right-[15%] w-[600px] h-[600px] bg-white/10 rounded-full blur-[120px]"
-            animate={{
-              scale: [1.2, 1, 1.2],
-              opacity: [0.5, 0.3, 0.5],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-        </motion.div>
+            className="absolute inset-0 z-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <motion.div
+              className="absolute top-40 left-[15%] w-[500px] h-[500px] bg-white/5 rounded-full blur-[120px]"
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.5, 0.3],
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            <motion.div
+              className="absolute bottom-20 right-[15%] w-[600px] h-[600px] bg-white/10 rounded-full blur-[120px]"
+              animate={{
+                scale: [1.2, 1, 1.2],
+                opacity: [0.5, 0.3, 0.5],
+              }}
+              transition={{
+                duration: 10,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+          </motion.div>
+        )}
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
             <motion.div
               className="text-center lg:text-left max-w-2xl mx-auto lg:mx-0"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={!isMobile ? { opacity: 0, y: 20 } : false}
+              animate={!isMobile ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8 }}
             >
               {/* Tag */}
@@ -152,7 +152,7 @@ export function Hero() {
               </motion.div>
             </motion.div>
 
-            {/* Right Content - Rotating Coin */}
+            {/* Right Content - 3D Model */}
             {!isMobile && (
               <div className="relative h-[400px] lg:h-[600px]">
                 <div className="w-full h-full">
