@@ -43,3 +43,14 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #444;
 }
+
+/* Ensure dialogs always appear on top */
+[role="dialog"] {
+  position: relative;
+  z-index: 50;
+}
+
+/* Optional: Add smooth transition for blur effect */
+#root > div:first-child {
+  transition: filter 0.3s ease-out;
+}

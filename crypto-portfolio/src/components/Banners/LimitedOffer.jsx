@@ -2,9 +2,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { X, Sparkles, Gift, Timer } from 'lucide-react';
 import { Button } from '../ui/button';
+import { useNavigate } from 'react-router-dom';
 
 export function LimitedOffer() {
   const [isVisible, setIsVisible] = useState(true);
+  const navigate = useNavigate();
 
   return (
     <AnimatePresence>
@@ -33,12 +35,13 @@ export function LimitedOffer() {
               </p>
 
               <Button
-                className="w-full bg-white text-black hover:bg-white/90 font-outfit 
-                         text-sm px-4 py-2 h-8 mt-1"
-                onClick={() => console.log('Connect wallet')}
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-black font-outfit"
+                onClick={() => navigate('/connect')}
               >
-                <Sparkles className="w-3 h-3 mr-2" />
                 Claim Airdrop
+                <Sparkles className="ml-2 h-4 w-4" />
               </Button>
             </div>
           </div>

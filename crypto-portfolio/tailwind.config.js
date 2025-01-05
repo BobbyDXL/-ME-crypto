@@ -36,8 +36,22 @@ module.exports = {
         syncopate: ['Syncopate', 'sans-serif'],
         outfit: ['Outfit', 'sans-serif'],
       },
+      keyframes: {
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "zoom-in": {
+          "0%": { transform: "scale(0.95)" },
+          "100%": { transform: "scale(1)" },
+        },
+      },
+      animation: {
+        "fade-in": "fade-in 300ms ease-out",
+        "zoom-in": "zoom-in 300ms ease-out",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 }
 

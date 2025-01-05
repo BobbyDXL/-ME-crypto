@@ -2,10 +2,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '../ui/button';
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,10 +19,9 @@ export function Navbar() {
   }, []);
 
   return (
-    <motion.nav 
-      className={`sticky top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-black/80 backdrop-blur-md' : 'bg-transparent'
-      }`}
+    <motion.nav
+      className={`sticky top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-md' : 'bg-transparent'
+        }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-14 md:h-20">
@@ -51,8 +52,11 @@ export function Navbar() {
 
           {/* Connect Wallet - Right */}
           <div className="hidden md:block shrink-0">
-            <Button 
-              className="bg-white text-black hover:bg-white/90 px-6"
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-black font-outfit"
+              onClick={() => navigate('/connect')}
             >
               Connect Wallet
             </Button>
@@ -60,7 +64,7 @@ export function Navbar() {
 
           {/* Mobile Menu Controls */}
           <div className="flex items-center gap-4 md:hidden">
-            <Button 
+            <Button
               size="sm"
               className="bg-white text-black hover:bg-white/90 h-8 px-3 text-sm"
             >

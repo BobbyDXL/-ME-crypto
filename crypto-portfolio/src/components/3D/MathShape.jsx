@@ -91,8 +91,8 @@ export function MathShape() {
     <div 
       style={{ 
         width: '100%', 
-        height: '100%', 
-        minHeight: '400px',
+        height: '100%',
+        minHeight: '280px',
         cursor: 'pointer'
       }}
       onMouseEnter={() => setHovered(true)}
@@ -100,7 +100,10 @@ export function MathShape() {
       onClick={() => setClicked(!clicked)}
     >
       <Canvas
-        camera={{ position: [0, 0, 4], fov: 45 }}
+        camera={{ 
+          position: [0, 0, 4],
+          fov: window.innerWidth < 640 ? 50 : 45
+        }}
         style={{ 
           background: 'transparent',
           transform: `scale(${clicked ? 1.1 : 1})`,
